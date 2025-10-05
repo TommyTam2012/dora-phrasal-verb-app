@@ -12,6 +12,7 @@
       flex-wrap: wrap;
       gap: 15px;
       margin-bottom: 20px;
+      justify-content: center;
     }
     .exam-btn {
       background: #4a148c;
@@ -23,39 +24,23 @@
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: background 0.2s ease;
     }
-    .exam-btn:hover {
-      background: #7b1fa2;
-    }
+    .exam-btn:hover { background: #7b1fa2; }
     .school-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
+      display: flex; align-items: center; justify-content: center; gap: 15px;
     }
-    .school-logo {
-      height: 50px;
-    }
+    .school-logo { height: 50px; }
     #avatarContainer {
-      display: flex;
-      justify-content: center;
-      margin: 30px auto;
-      position: relative;
+      display: flex; justify-content: center; margin: 30px auto; position: relative;
     }
-    #avatarImage,
-    #didVideo {
-      border-radius: 12px;
-      border: 2px solid #4a148c;
-      width: 320px;
-      height: 320px;
-      object-fit: cover;
+    #avatarImage, #didVideo {
+      border-radius: 12px; border: 2px solid #4a148c;
+      width: 320px; height: 320px; object-fit: cover;
     }
-    #didVideo {
-      display: none;
-    }
+    #didVideo { display: none; }
   </style>
 </head>
 <body>
@@ -82,7 +67,7 @@
       <h2>輸入或說出要學的片語動詞</h2>
       <textarea id="questionInput" placeholder="例如：請解釋 'run into' 或 'give up' 的意思..."></textarea>
       <div>
-        <button onclick="submitQuestion()">提交問題</button>
+        <button id="submitBtn">提交問題</button>
         <button id="micBtn" style="margin-left: 10px;">🎤 語音提問</button>
       </div>
     </section>
@@ -91,26 +76,20 @@
       <h2>AI 解釋結果</h2>
       <div id="responseBox">請輸入片語動詞後，AI 將提供解釋與例句</div>
       <div style="margin-top: 10px;">
-        <button id="ttsBtn" onclick="speakWithMyVoice(document.getElementById('responseBox').textContent)">
-          🔊 聽英文與中文解釋
-        </button>
-<button id="stopTTSBtn" style="margin-left: 10px;">
-  🔇 停止播放
-</button>
-</div>
+        <button id="ttsBtn">🔊 聽英文與中文解釋</button>
+        <button id="stopTTSBtn" style="margin-left: 10px;">🔇 停止播放</button>
+      </div>
     </section>
 
     <section class="history">
       <h2>歷史對話紀錄</h2>
       <ul id="historyList"></ul>
-      <button onclick="clearHistory()" style="margin-top:10px;">🧹 清除紀錄</button>
+      <button id="clearBtn" style="margin-top:10px;">🧹 清除紀錄</button>
     </section>
 
     <section class="avatar">
       <div id="avatarContainer">
-        <img id="avatarImage"
-             src="https://tommy-tam.readyplayer.me/avatar?id=68553cde1b6a13eb98f1a0d5"
-             alt="Dora's Tutor Avatar" />
+        <img id="avatarImage" src="https://tommy-tam.readyplayer.me/avatar?id=68553cde1b6a13eb98f1a0d5" alt="Dora's Tutor Avatar" />
         <iframe id="didVideo" allow="autoplay" frameborder="0"></iframe>
       </div>
     </section>
