@@ -1,1 +1,26 @@
+{
+  "name": "dora-phrasal-verb-app",
+  "version": "1.0.0",
+  "description": "AI-powered Phrasal Verb Practice App for Dora, built by Capt. Tommy Sir using GPT-4o and ElevenLabs.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "openai": "^4.0.0"
+  },
+  "keywords": [
+    "GPT-4o",
+    "OpenAI",
+    "ElevenLabs",
+    "AI English Learning",
+    "Phrasal Verb Practice",
+    "IELTS Vocabulary",
+    "TommySir"
+  ],
+  "author": "Tommy Sir",
+  "license": "MIT"
+}
 
