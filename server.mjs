@@ -96,9 +96,7 @@ app.post("/api/speak", async (req, res) => {
     const elevenKey = process.env.ELEVENLABS_API_KEY;
 
     if (!text || !elevenKey) {
-      return res
-        .status(400)
-        .json({ error: "Missing text or ELEVENLABS_API_KEY." });
+      return res.status(400).json({ error: "Missing text or ELEVENLABS_API_KEY." });
     }
 
     const ttsRes = await fetch(
@@ -108,12 +106,19 @@ app.post("/api/speak", async (req, res) => {
         headers: {
           "xi-api-key": elevenKey,
           "Content-Type": "application/json",
+          "Accept": "audio/mpeg"
         },
         body: JSON.stringify({
           text,
           model_id: "eleven_multilingual_v2",
-          voice_settings: { stability: 0.6, similarity_boost: 0.9, style: "narration" },
-        }),
+          voice_settings: {
+            stability: 0.6,
+            similarity_boost: 0.9,
+            style: 0.3,               // ← must be a number (0–1)
+            use_speaker_boost: true   // ← optional but helpful
+          }
+          // You can also add: optimize_streaming_latency: 2
+        })
       }
     );
 
@@ -131,7 +136,6 @@ app.post("/api/speak", async (req, res) => {
     res.status(500).json({ error: "TTS Server Error", detail: err.message });
   }
 });
-
 // ---- Start ----
 app.listen(PORT, () => {
   console.log(`Dora app running on http://localhost:${PORT}`);
