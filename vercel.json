@@ -7,5 +7,15 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/public/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/exam/(.*)\\.pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" },
+        { "key": "Content-Disposition", "value": "inline" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
   ]
 }
