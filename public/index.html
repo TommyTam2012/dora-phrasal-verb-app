@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dora 的 Phrasal Verb AI 練習助手</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script>console.log("🧭 Dora Phrasal Verb index.html loaded");</script>
+  <style>
+    .exam-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .exam-btn {
+      background: #4a148c;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      width: 220px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .exam-btn:hover {
+      background: #7b1fa2;
+    }
+    .school-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    .school-logo {
+      height: 50px;
+    }
+    #avatarContainer {
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+      position: relative;
+    }
+    #avatarImage,
+    #didVideo {
+      border-radius: 12px;
+      border: 2px solid #4a148c;
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+    }
+    #didVideo {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="school-header">
+      <img src="/exam/logo.png" alt="School Logo" class="school-logo" />
+      <h1>Dora 的 Phrasal Verb AI 練習助手</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="selectors">
+      <h2>選擇練習 PDF：</h2>
+      <div class="exam-grid">
+        <a class="exam-btn" href="https://github.com/TommyTam2012/dora-phrasal-verb-app/raw/main/public/exam/Phrasal1_2.pdf" target="_blank">📘 Phrasal Verbs 1–2</a>
+        <a class="exam-btn" href="https://github.com/TommyTam2012/dora-phrasal-verb-app/raw/main/public/exam/Phrasal3_4.pdf" target="_blank">📘 Phrasal Verbs 3–4</a>
+        <a class="exam-btn" href="https://github.com/TommyTam2012/dora-phrasal-verb-app/raw/main/public/exam/Phrasal5-6.pdf" target="_blank">📘 Phrasal Verbs 5–6</a>
+        <a class="exam-btn" href="https://github.com/TommyTam2012/dora-phrasal-verb-app/raw/main/public/exam/Phrasal7_8.pdf" target="_blank">📘 Phrasal Verbs 7–8</a>
+      </div>
+    </section>
+
+    <section class="question">
+      <h2>輸入或說出要學的片語動詞</h2>
+      <textarea id="questionInput" placeholder="例如：請解釋 'run into' 或 'give up' 的意思..."></textarea>
+      <div>
+        <button onclick="submitQuestion()">提交問題</button>
+        <button id="micBtn" style="margin-left: 10px;">🎤 語音提問</button>
+      </div>
+    </section>
+
+    <section class="response">
+      <h2>AI 解釋結果</h2>
+      <div id="responseBox">請輸入片語動詞後，AI 將提供解釋與例句</div>
+      <div style="margin-top: 10px;">
+        <button id="ttsBtn">🔊 聽英文與中文解釋</button>
+        <button id="stopTTSBtn" style="margin-left: 10px;">🔇 停止播放</button>
+      </div>
+    </section>
+
+    <section class="history">
+      <h2>歷史對話紀錄</h2>
+      <ul id="historyList"></ul>
+      <button onclick="clearHistory()" style="margin-top:10px;">🧹 清除紀錄</button>
+    </section>
+
+    <section class="avatar">
+      <div id="avatarContainer">
+        <img id="avatarImage" src="https://tommy-tam.readyplayer.me/avatar?id=68553cde1b6a13eb98f1a0d5" alt="Dora's Tutor Avatar" />
+        <iframe id="didVideo" allow="autoplay" frameborder="0"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script src="/script.js" defer></script>
+
+  <script>
+    function switchToDIDStream(streamUrl) {
+      const iframe = document.getElementById("didVideo");
+      const staticAvatar = document.getElementById("avatarImage");
+      iframe.src = streamUrl;
+      iframe.style.display = "block";
+      staticAvatar.style.display = "none";
+      console.log("🎥 D-ID stream activated:", streamUrl);
+    }
+  </script>
+</body>
+</html>
 
