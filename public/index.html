@@ -70,10 +70,33 @@
     <section class="selectors">
       <h2>選擇練習 PDF：</h2>
       <div class="exam-grid">
-        <a class="exam-btn" href="https://github.com/TommyTam2012/dora-phrasal-verb-app/raw/main/public/exam/Phrasal1_2.pdf" target="_blank">📘 Phrasal Verbs 1–2</a>
-        <a class="exam-btn" href="https://github.com/TommyTam2012/dora-phrasal-verb-app/raw/main/public/exam/Phrasal3_4.pdf" target="_blank">📘 Phrasal Verbs 3–4</a>
-        <a class="exam-btn" href="https://github.com/TommyTam2012/dora-phrasal-verb-app/raw/main/public/exam/Phrasal5-6.pdf" target="_blank">📘 Phrasal Verbs 5–6</a>
-        <a class="exam-btn" href="https://github.com/TommyTam2012/dora-phrasal-verb-app/raw/main/public/exam/Phrasal7_8.pdf" target="_blank">📘 Phrasal Verbs 7–8</a>
+        <a
+          class="exam-btn"
+          href="https://github.com/TommyTam2012/dora-phrasal-verb-app/blob/main/public/exam/Phrasal1_2.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >📘 Phrasal Verbs 1–2</a>
+
+        <a
+          class="exam-btn"
+          href="https://github.com/TommyTam2012/dora-phrasal-verb-app/blob/main/public/exam/Phrasal3_4.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >📘 Phrasal Verbs 3–4</a>
+
+        <a
+          class="exam-btn"
+          href="https://github.com/TommyTam2012/dora-phrasal-verb-app/blob/main/public/exam/Phrasal5-6.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >📘 Phrasal Verbs 5–6</a>
+
+        <a
+          class="exam-btn"
+          href="https://github.com/TommyTam2012/dora-phrasal-verb-app/blob/main/public/exam/Phrasal7_8.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >📘 Phrasal Verbs 7–8</a>
       </div>
     </section>
 
@@ -90,8 +113,12 @@
       <h2>AI 解釋結果</h2>
       <div id="responseBox">請輸入片語動詞後，AI 將提供解釋與例句</div>
       <div style="margin-top: 10px;">
-        <button id="ttsBtn">🔊 聽英文與中文解釋</button>
-        <button id="stopTTSBtn" style="margin-left: 10px;">🔇 停止播放</button>
+        <button id="ttsBtn" onclick="speakWithMyVoice(document.getElementById('responseBox').textContent)">
+          🔊 聽英文與中文解釋
+        </button>
+        <button id="stopTTSBtn" style="margin-left: 10px;" onclick="window.speechSynthesis && window.speechSynthesis.cancel()">
+          🔇 停止播放
+        </button>
       </div>
     </section>
 
@@ -123,4 +150,3 @@
   </script>
 </body>
 </html>
-
